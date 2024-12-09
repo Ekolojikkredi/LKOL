@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ekolojik Kredi Sistemi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Ekolojik Kredi</h1>
+    </div>
+    <nav>
+      <button onclick="showSection('register')">Kayıt Ol</button>
+      <button onclick="showSection('dataEntry')">Veri Girişi</button>
+      <button onclick="showSection('viewData')">Veri Görüntüle</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Ana Sayfa Bölümü -->
+    <section id="home" class="active">
+      <h2>Hoş Geldiniz</h2>
+      <p>Ekolojik Kredi Sistemi'ne hoş geldiniz! Okullar ve öğrenciler için geri dönüşümü teşvik eden bir sistem.</p>
+    </section>
+
+    <!-- Kayıt Ol Bölümü -->
+    <section id="register">
+      <h2>Kayıt Ol</h2>
+      <h3>Okul Kaydı</h3>
+      <form id="schoolRegisterForm">
+        <input type="text" placeholder="Okul Adı" required>
+        <input type="text" placeholder="İl" required>
+        <input type="text" placeholder="İlçe" required>
+        <input type="password" placeholder="Şifre" required>
+        <button type="button" onclick="registerSchool()">Okulu Kaydet</button>
+      </form>
+      <h3>Öğrenci Kaydı</h3>
+      <form id="studentRegisterForm">
+        <input type="text" placeholder="Ad" required>
+        <input type="text" placeholder="Soyad" required>
+        <input type="text" placeholder="Okul Numarası" required>
+        <input type="text" placeholder="Sınıf/Şube" required>
+        <input type="email" placeholder="E-posta (Opsiyonel)">
+        <input type="tel" placeholder="Telefon (Opsiyonel)">
+        <button type="button" onclick="registerStudent()">Öğrenciyi Kaydet</button>
+      </form>
+    </section>
+
+    <!-- Veri Girişi Bölümü -->
+    <section id="dataEntry">
+      <h2>Veri Girişi</h2>
+      <form id="dataEntryForm">
+        <input type="text" placeholder="Okul Şifresi" required>
+        <input type="text" placeholder="Öğrenci Numarası" required>
+        <input type="text" placeholder="Ad Soyad" required>
+        <select id="wasteType" required>
+          <option value="">Atık Türü Seçin</option>
+          <option value="yag">Yağ</option>
+          <option value="tekstil">Tekstil</option>
+          <option value="pil">Pil</option>
+          <option value="elektronik">Elektronik</option>
+          <option value="metal">Metal</option>
+          <option value="kagit">Kağıt</option>
+          <option value="plastik">Plastik</option>
+          <option value="cam">Cam</option>
+        </select>
+        <input type="number" placeholder="Miktar (kg)" required>
+        <input type="text" placeholder="Teslim Alan Kişi" required>
+        <button type="button" onclick="submitData()">Veriyi Kaydet</button>
+      </form>
+    </section>
+
+    <!-- Veri Görüntüle Bölümü -->
+    <section id="viewData">
+      <h2>Veri Görüntüle</h2>
+      <form id="viewDataForm">
+        <input type="text" placeholder="E-posta veya Öğrenci Numarası" required>
+        <button type="button" onclick="viewStudentData()">Verileri Gör</button>
+      </form>
+      <div id="studentData"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
